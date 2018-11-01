@@ -16,10 +16,10 @@ ARCHITECTURE rtl OF ram_dual IS
 	SIGNAL read_address_reg : address_vector;
 	BEGIN PROCESS (clock1)
 		BEGIN
-		IF (clock1'event AND clock1 = '1') THEN
-			IF (we = '1') THEN ram_block(write_address) <= data;
+			IF (clock1'event AND clock1 = '1') THEN
+				IF (we = '1') THEN ram_block(write_address) <= data;
+				END IF;
 			END IF;
-		END IF;
 	 	END PROCESS;
 	
 	PROCESS (clock2)
