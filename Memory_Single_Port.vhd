@@ -16,12 +16,12 @@ ARCHITECTURE rtl OF ram IS TYPE RAM IS ARRAY(0 TO 2 ** ADDRESS_WIDTH - 1) OF
 
 	BEGIN PROCESS (clock,we)
 
-	BEGIN
-		IF (clock'event AND clock = '1') THEN
-			IF (we = '1') THEN
-				ram_block(to_integer(unsigned(write_address))) <= data;
+		BEGIN
+			IF (clock'event AND clock = '1') THEN
+				IF (we = '1') THEN
+					ram_block(to_integer(unsigned(write_address))) <= data;
+				END IF;
+				q <= ram_block(to_integer(unsigned(read_address)));
 			END IF;
-			q <= ram_block(to_integer(unsigned(read_address)));
-		END IF;
 	END PROCESS;
 END rtl;
