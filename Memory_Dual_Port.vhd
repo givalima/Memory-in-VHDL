@@ -20,7 +20,7 @@ ARCHITECTURE rtl OF ram_dual IS
 			IF (we = '1') THEN ram_block(write_address) <= data;
 			END IF;
 		END IF;
-	 END PROCESS;
+	 	END PROCESS;
 	
 	PROCESS (clock2)
 		BEGIN
